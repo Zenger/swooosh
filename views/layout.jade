@@ -1,0 +1,89 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js')
+    script(src='http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js')
+    script(src='/javascripts/scripts.js')
+  body
+    div(class='navbar navbar-default navbar-fixed-top')
+        div(class='container')
+            div(class='nav-header')
+                a(href='/', class='navbar-brand')='Swooosh'
+            div(id='navbar-main', class='navbar-collapse collapse pull-right')
+                ul(class='nav navbar-nav')
+                    li
+                        a(href='#about',data-toggle='modal',data-target='#modal-about')='About'
+                    
+                    li
+                        a(href='#disclaimer', data-toggle='modal', data-target='#modal-disclaimer')='Disclaimer'
+
+                    li
+                        a(href='#contacts', data-toggle='modal', data-target='#modal-contact')='Contacts'
+
+
+    div(class='container')
+        div(class='clearfix')='&nbsp;'
+        block content
+
+    div#modals
+        div.modal.fade#modal-about
+            div.modal-dialog
+                div.modal-content
+                    div.modal-header
+                        p="Swoosh"
+                    div.modal-body
+                        p.
+                            This is an experimental project created solely for the purpose of learning.
+                        p
+                            span It is built using:
+                            ul
+                                li="NodeJS (Express)"
+                                li="MongoDB (Mongoose)"
+                                li="npm request, for sending requests"
+                                li="npm iconv, for converting windows-1251 to utf-8"
+                                li="npm jsdom, npm=jquery, for parsing the tv programme"
+                        p.
+                            All the content comes from <a href='http://tvsmotr.ru'>http://tvsmotr.ru</a> and I don't own anything of it.
+                        p All source available on <a href='http://github.com/zenger/'>github</a>.
+                    div.modal-footer
+                        button.btn.btn-default(data-dismiss='modal')="Close"
+
+        div.modal.fade#modal-disclaimer
+            div.modal-dialog
+                div.modal-content
+                    div.modal-header
+                        p="Swoosh"
+                    div.modal-body
+                        p. This web-site exists solely for the purpose of learning and education.
+                        p. Any content listed on this web-site is owned and controled by their respective owner.
+                        p. The developer of this web-site does not own any of the content listed.
+                        h4. No copyright infrigment intended!
+                    div.modal-footer
+                        button.btn.btn-default(data-dismiss='modal')="Close"
+
+        div.modal.fade#modal-contact
+            div.modal-dialog
+                div.modal-content
+                    div.modal-header
+                        p="Swoosh"
+                    div.modal-body
+                        form(method='post',action='/contact', id='send-contact-form')
+                            div.form-group
+                                label!="&nbsp;"
+                                input(type='text', placeholder='Your Name', class='col-lg-12 form-control', name='name')
+                            div.form-group
+                                label!="&nbsp;"
+                                input(type='text', placeholder='Your E-mail', class='col-lg-12 form-control', name='email')
+                            div.form-group
+                                label!="&nbsp;"
+                                textarea(placeholder='Your Message', class='col-lg-12 form-control', name='message')
+                            div.form-group
+                                label!="&nbsp;"
+                                br
+                                input(type='submit', value='Submit', class='btn btn-primary')
+                            div.clearfix
+
+                    div.modal-footer
+                        button.btn.btn-default(data-dismiss='modal')="Close"

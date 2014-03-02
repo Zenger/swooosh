@@ -1,0 +1,18 @@
+extends layout
+
+block content
+	br
+	
+	h1(class='page-header')=channel.title
+
+	div(id='view-channel', class='row', data-slug=channel.slug, title=channel.title)
+		div(class='col-md-9')
+			object(align='middle', width='840', height='480', id='channelObject', codebase='http://fpdownload.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=8,0,0,0', classid='clsid:d27cdb6e-ae6d-11cf-96b8-444553540000')
+				param(name='wmode',value='opaque')
+				!=channel.rscode
+				
+			h3.page-header#now-playing
+			div#short-tvp
+		div(class='col-md-3',id='full-tvp')
+			p="Loading..."
+
